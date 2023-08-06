@@ -4,7 +4,7 @@ import * as z from "zod";
 import axios from "axios";
 
 import { Heading } from "@/components/heading";
-import { MessageSquare } from "lucide-react";
+import { Code, MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,8 +21,9 @@ import { Loader } from "@/components/loader";
 import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
+import ReactMarkdown from "react-markdown";
 
-const Conversation = () => {
+const CodePage = () => {
 
     const router = useRouter();
     const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
@@ -43,7 +44,7 @@ const Conversation = () => {
                 content: values.prompt,
             };
             const newMessages = [...messages, userMessage];
-            const response = await axios.post("/api/conversation", {
+            const response = await axios.post("/api/code", {
                 messages: newMessages,
             });
 
@@ -60,7 +61,7 @@ const Conversation = () => {
 
     return (
         <div>
-            <Heading tittle="Conversation" description="opis" icon={MessageSquare}
+            <Heading tittle="Code Generation" description="opis" icon={Code}
                 iconColor="text-violet-500" bgColor="bg-violet-500/10" />
             <div className="px-4 lg:px-8">
                 <div>
@@ -71,7 +72,7 @@ const Conversation = () => {
                                 <FormItem className="col-span-12 lg:col-span-10">
                                     <FormControl className="m-0 p-0">
                                         <Input className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                                            disabled={isLoading} placeholder="How do I calculate mean of data?" {...field} />
+                                            disabled={isLoading} placeholder="Double for loops for 2D matrix input" {...field} />
                                     </FormControl>
                                 </FormItem>
                             )} />
@@ -96,9 +97,19 @@ const Conversation = () => {
                                 className={cn("p-8 w-full flex items-start gap-x-8 rounded-lg",
                                     message.role == "user" ? "bg-white border border-black/10" : "bg-muted")}>
                                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
-                                <p className="text-sm">
-                                    {message.content}
-                                </p>
+                                <ReactMarkdown components={{
+                                    pre: ({ node, ...props }) => (
+                                        <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
+                                            <pre {...props} />
+                                        </div>
+                                    ),
+                                    code: ({ node, ...props }) => (
+                                        <code className="bg-black/10 rounded-lg p-1" {...props}></code>
+                                    )
+                                }}
+                                    className="text-sm overflow-hidden leading-7">
+                                    {message.content || ""}
+                                </ReactMarkdown>
                             </div>
                         ))}
                     </div>
@@ -108,4 +119,4 @@ const Conversation = () => {
     )
 }
 
-export default Conversation;
+export default CodePage;
