@@ -22,6 +22,7 @@ import { cn } from "@/lib/utils";
 import { Select, SelectValue, SelectTrigger, SelectContent, SelectItem } from "@/components/ui/select";
 import { Card, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
+import { toast } from "react-hot-toast";
 
 const ImagePage = () => {
 
@@ -53,7 +54,7 @@ const ImagePage = () => {
             form.reset();
 
         } catch (error: any) {
-            console.log(error);
+            toast.error("Oops. Something went wrong. Please try again.");
         } finally {
             router.refresh();
         }

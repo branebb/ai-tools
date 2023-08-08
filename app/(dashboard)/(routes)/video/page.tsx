@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
+import { toast } from "react-hot-toast";
 
 const VideoPage = () => {
 
@@ -43,7 +44,7 @@ const VideoPage = () => {
             form.reset();
 
         } catch (error: any) {
-            console.log(error);
+            toast.error("Oops. Something went wrong. Please try again.");
         } finally {
             router.refresh();
         }

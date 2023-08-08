@@ -22,6 +22,7 @@ import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
 import ReactMarkdown from "react-markdown";
+import { toast } from "react-hot-toast";
 
 const CodePage = () => {
 
@@ -53,7 +54,7 @@ const CodePage = () => {
             form.reset();
 
         } catch (error: any) {
-            console.log(error);
+            toast.error("Oops. Something went wrong. Please try again.");
         } finally {
             router.refresh();
         }
