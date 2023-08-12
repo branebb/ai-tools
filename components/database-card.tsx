@@ -4,6 +4,7 @@ import DeleteButton from './delete-button';
 import DownloadButton from './download-button';
 import EditButton from './edit-button';
 import { toast } from 'react-hot-toast';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 const DatabaseCard = () => {
 
@@ -56,7 +57,7 @@ const DatabaseCard = () => {
                         <h2>{t.title}</h2>
                         <h2>{t.prompt}</h2>
                         <div className='text-sm'>
-                            {t.answer}
+                            {t.type === "Code" ? <ReactMarkdown>{t.answer}</ReactMarkdown> : t.answer}
                         </div>
                     </div>
                     <div className='flex flex-col gap-y-4'>

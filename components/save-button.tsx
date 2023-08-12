@@ -1,14 +1,14 @@
+import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { Button } from "./ui/button";
 
 const SaveButton = ({ dataschema }: any) => {
+    const [buttonText, setButtonText] = useState("Save"); // Initial button text is "Save"
 
     const saveTopic = async () => {
+        const { title, type, prompt, answer } = dataschema;
+        const data = { title, type, prompt, answer };
 
-        const {title, type, prompt, answer}  = dataschema;
-
-        const data = { title, type, prompt, answer} 
-        
         const res = await fetch("http://localhost:3000/api/saved", {
             method: "POST",
             headers: {
@@ -17,13 +17,18 @@ const SaveButton = ({ dataschema }: any) => {
             body: JSON.stringify(data),
         });
 
-        if (!res.ok) {
-            toast.error("Failed to save document.")
+        if (res.ok) {
+            setButtonText("Saved");
+            toast.success("Document saved successfully!");
+        } else {
+            toast.error("Failed to save document.");
         }
     };
 
     return (
-        <Button onClick={saveTopic}>Save</Button>
+        <Button onClick={saveTopic} disabled={buttonText === "Saved"}>
+            {buttonText}
+        </Button>
     );
 }
 

@@ -27,7 +27,7 @@ import SaveButton from "@/components/save-button";
 
 const CodePage = () => {
 
-    const [titleToSave, setTitleToSave] = useState("");
+    const [promptToSave, setPromptToSave] = useState("");
 
     const router = useRouter();
     const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
@@ -44,7 +44,7 @@ const CodePage = () => {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             
-            setTitleToSave(values.prompt);
+            setPromptToSave(values.prompt);
 
             const userMessage: ChatCompletionRequestMessage = {
                 role: "user",
@@ -117,7 +117,7 @@ const CodePage = () => {
                                     className="text-sm overflow-hidden leading-7">
                                     {message.content || ""}
                                 </ReactMarkdown>
-                                {message.role != "user" && <SaveButton topic={{tittle: titleToSave, description: message.content}} />}
+                                {message.role !== "user" && <SaveButton dataschema = {{title: promptToSave, prompt: promptToSave, answer: message.content, type: "Code"}} />}
                             </div>
                             
                         ))}

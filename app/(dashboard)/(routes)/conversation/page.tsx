@@ -44,8 +44,8 @@ const Conversation = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            setPromptToSave(values.prompt);
 
+            setPromptToSave(values.prompt);
 
             const userMessage: ChatCompletionRequestMessage = {
                 role: "user",
@@ -109,7 +109,7 @@ const Conversation = () => {
                                 <p className="text-sm">
                                     {message.content}
                                 </p>
-                                {message.role != "user" && <SaveButton dataschema = {{title: promptToSave, prompt: promptToSave, answer: message.content, type: "Conversation"}} />}
+                                {message.role !== "user" && <SaveButton dataschema = {{title: promptToSave, prompt: promptToSave, answer: message.content, type: "Conversation"}} />}
                             </div>
                         ))}
                     </div>
