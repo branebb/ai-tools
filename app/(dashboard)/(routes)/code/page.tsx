@@ -23,8 +23,11 @@ import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
 import ReactMarkdown from "react-markdown";
 import { toast } from "react-hot-toast";
+import SaveButton from "@/components/save-button";
 
 const CodePage = () => {
+
+    const [titleToSave, setTitleToSave] = useState("");
 
     const router = useRouter();
     const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
@@ -40,6 +43,9 @@ const CodePage = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
+            
+            setTitleToSave(values.prompt);
+
             const userMessage: ChatCompletionRequestMessage = {
                 role: "user",
                 content: values.prompt,
@@ -111,7 +117,9 @@ const CodePage = () => {
                                     className="text-sm overflow-hidden leading-7">
                                     {message.content || ""}
                                 </ReactMarkdown>
+                                {message.role != "user" && <SaveButton topic={{tittle: titleToSave, description: message.content}} />}
                             </div>
+                            
                         ))}
                     </div>
                 </div>

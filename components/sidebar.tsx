@@ -55,18 +55,12 @@ const routes = [
     },
 
     {
-        label: "History",
+        label: "Saved",
         icon: HistoryIcon,
-        href: "/history",
+        href: "/saved",
         color: "text-green-500",
     },
 
-    {
-        label: "Settings",
-        icon: Settings,
-        href: "/settings",
-        color: "text-white",
-    },
 ];
 
 const Sidebar = () => {

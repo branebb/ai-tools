@@ -22,8 +22,13 @@ import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
 import { toast } from "react-hot-toast";
+import SaveButton from "@/components/save-button";
+import { getRandomValues } from "crypto";
+import { auth } from "@clerk/nextjs";
 
 const Conversation = () => {
+
+    const [promptToSave, setPromptToSave] = useState("");
 
     const router = useRouter();
     const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
@@ -39,6 +44,9 @@ const Conversation = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
+            setPromptToSave(values.prompt);
+
+
             const userMessage: ChatCompletionRequestMessage = {
                 role: "user",
                 content: values.prompt,
@@ -97,9 +105,11 @@ const Conversation = () => {
                                 className={cn("p-8 w-full flex items-start gap-x-8 rounded-lg",
                                     message.role == "user" ? "bg-white border border-black/10" : "bg-muted")}>
                                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+                                
                                 <p className="text-sm">
                                     {message.content}
                                 </p>
+                                {message.role != "user" && <SaveButton dataschema = {{title: promptToSave, prompt: promptToSave, answer: message.content, type: "Conversation"}} />}
                             </div>
                         ))}
                     </div>

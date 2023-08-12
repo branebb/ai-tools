@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
-import { MessageSquare, ImageIcon, VideoIcon, Music, HistoryIcon, Code, Settings, ArrowRight } from "lucide-react"
+import { MessageSquare, ImageIcon, VideoIcon, Music, HistoryIcon, Code, ArrowRight } from "lucide-react"
 
 const tools = [
   {
@@ -48,9 +48,9 @@ const tools = [
   },
 
   {
-      label: "History",
+      label: "Saved",
       icon: HistoryIcon,
-      href: "/history",
+      href: "/saved",
       bgColor: "bg-violet-500/10",
       color: "text-green-500",
   }
