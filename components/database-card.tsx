@@ -39,6 +39,12 @@ const DatabaseCard = () => {
         fetchData();
     }, []);
 
+    const handleTopicDeleted = (deletedId : any) => {
+        setDataschemas((prevDataschemas) =>
+            prevDataschemas.filter((schema : any) => schema._id !== deletedId)
+        );
+    };
+
     const handleNextPage = () => {
         setCurrentPage(currentPage + 1);
     };
@@ -65,10 +71,11 @@ const DatabaseCard = () => {
                             id={t._id}
                             initialTitle={t.title}
                             onTitleChange={(newTitle: string) => {
+                                // Handle title change if needed
                             }}
                         />
                         <DownloadButton topic={t} />
-                        <DeleteButton id={t._id} />
+                        <DeleteButton id={t._id} onTopicDeleted={handleTopicDeleted} />
                     </div>
                 </div>
             ))}

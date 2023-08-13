@@ -16,9 +16,13 @@ export async function POST(request: Request) {
     return NextResponse.json("Database insert successful!");
 }
 
-export async function GET(){
+export async function GET()
+{
+
+    const { userId } = auth();
     await connectMongoDB();
-    const data = await dataSchema.find();
+    const data = await dataSchema.find({ userId });
+
     return NextResponse.json({ data })
 }
 
