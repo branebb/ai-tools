@@ -1,15 +1,18 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Roboto } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 import { ToasterProvider } from '@/components/toaster-provider'
 import { CrispProvider } from '@/components/crisp-provider'
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({
+  weight: "500",
+  subsets: ["latin"]
+});
 
 export const metadata: Metadata = {
-  title: 'Mathos AI Tools',
-  description: 'AI tools provided by mathos',
+  title: 'mathos AI Tools',
+  description: 'AI alati nastali na mathos-u',
 }
 
 export default function RootLayout({
@@ -21,7 +24,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <CrispProvider />
-        <body className={inter.className}>{children}
+        <body className={roboto.className}>{children}
           <ToasterProvider />
         </body>
       </html>
