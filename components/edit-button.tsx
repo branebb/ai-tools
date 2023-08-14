@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from './ui/button';
+import { toast } from 'react-hot-toast';
 
 const EditButton = ({ id, initialTitle, onTitleChange }: any) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -26,16 +27,15 @@ const EditButton = ({ id, initialTitle, onTitleChange }: any) => {
                     'Content-Type': 'application/json', 
                 },
                 body: JSON.stringify({ id, title: editedTitle }),
-
             });
 
             if (res.ok) {
                 onTitleChange(editedTitle);
                 setIsEditing(false);
-                window.location.reload();
+                toast.success('Title changed successfuly!');
             }
         } catch (error) {
-            console.error('Error updating title:', error);
+            toast.error('Error updating title!');
         }
     };
 

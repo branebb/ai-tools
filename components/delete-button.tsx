@@ -1,7 +1,5 @@
 import toast from "react-hot-toast"
 import { Button } from "./ui/button";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 const DeleteButton = ({ id, onTopicDeleted }: any) => {
     const deleteTopic = async () => {
@@ -13,7 +11,7 @@ const DeleteButton = ({ id, onTopicDeleted }: any) => {
             });
 
             if (res.ok) {
-                onTopicDeleted(id); // Call the function to update the state in the parent component
+                onTopicDeleted(id);
                 toast.success("Topic deleted successfully!");
             }
         }

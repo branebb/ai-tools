@@ -3,53 +3,52 @@
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
-
-import { MessageSquare, ImageIcon, VideoIcon, Music, HistoryIcon, Code, ArrowRight } from "lucide-react"
+import { ArrowRight, MessagesSquare, ImagePlus, Clapperboard, Disc3, Disc3Icon, Code2, Download } from "lucide-react"
 
 const tools = [
   {
-      label: "Conversation",
-      icon: MessageSquare,
+      label: "Razgovor",
+      icon: MessagesSquare,
       href: "/conversation",
       bgColor: "bg-violet-500/10",
-      color: "text-yellow-500",
+      color: "text-[#EC368D]",
   },
 
   {
-      label: "Image Generation",
-      icon: ImageIcon,
+      label: "Generiranje slika",
+      icon: ImagePlus,
       href: "/image",
       bgColor: "bg-violet-500/10",
-      color: "text-red-500",
+      color: "text-[#FFE66D]",
   },
 
   {
-      label: "Video Generation",
-      icon: VideoIcon,
+      label: "Generiranje videa",
+      icon: Clapperboard,
       href: "/video",
       bgColor: "bg-violet-500/10",
-      color: "text-sky-500",
+      color: "text-[#A0C1D1]",
   },
 
   {
-      label: "Music Generation",
-      icon: Music,
+      label: "Generiranje glazbe",
+      icon: Disc3Icon,
       href: "/music",
       bgColor: "bg-violet-500/10",
       color: "text-orange-500",
   },
 
   {
-      label: "Code Generation",
-      icon: Code,
+      label: "Generiranje koda",
+      icon: Code2,
       href: "/code",
       bgColor: "bg-violet-500/10",
       color: "text-emerald-500",
   },
 
   {
-      label: "Saved",
-      icon: HistoryIcon,
+      label: "Spremljeno",
+      icon: Download,
       href: "/saved",
       bgColor: "bg-violet-500/10",
       color: "text-green-500",
@@ -62,25 +61,25 @@ const DashboardPage = () => {
   return (
     <div>
       <div className="mb-8 space-y-4">
-        <h2 className="text-2xl md:text-4xl font-bold text-center">naslov</h2>
-        <p className="text-muted-foreground font-light text-sm md:text-lg text-center">
-          opis
+        <h2 className="text-2xl md:text-4xl font-bold text-center text-[#252422]">Upravljačka ploča</h2>
+        <p className="text-muted-foreground font-light text-sm md:text-lg text-center text-[#252422]">
+          Istraži sve mogućnosti alata
         </p>
       </div>
       <div className="px-4 md:px-20 lg:px-32 space-y-4">
         {tools.map((tool) => (
           <Card onClick={() => router.push(tool.href)}
           key={tool.href} 
-          className="p-4 border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer">
+          className="p-3 border-black/5 flex items-center justify-between hover:shadow-md transition cursor-pointer">
             <div className="flex items-center gap-x-4">
               <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
-                <tool.icon className={cn("w-8 h-8", tool.color)} />
+                <tool.icon className={cn("w-10 h-10", tool.color)} />
               </div>
-              <div className="font-semibold">
+              <div className="font-semibold text-[#252422] text-md">
                 {tool.label}
               </div>
             </div>
-            <ArrowRight className="w-5 h-5"/>
+            <ArrowRight className="w-8 h-8"/>
           </Card>
         ))}
       </div>

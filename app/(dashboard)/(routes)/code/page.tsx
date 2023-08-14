@@ -70,11 +70,11 @@ const CodePage = () => {
         <div>
             <Heading tittle="Code Generation" description="opis" icon={Code}
                 iconColor="text-violet-500" bgColor="bg-violet-500/10" />
-            <div className="px-4 lg:px-8">
+            <div className="px-4 lg:px-8 bg-[#CED9E5]">
                 <div>
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)}
-                            className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2">
+                            className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2 bg-white">
                             <FormField name="prompt" render={({ field }) => (
                                 <FormItem className="col-span-12 lg:col-span-10">
                                     <FormControl className="m-0 p-0">
@@ -91,7 +91,7 @@ const CodePage = () => {
                 </div>
                 <div className="space-y-4 mt-4">
                     {isLoading && (
-                        <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+                        <div className="p-8 rounded-lg w-full flex items-center justify-center bg-white">
                             <Loader />
                         </div>
                     )}
@@ -102,7 +102,7 @@ const CodePage = () => {
                         {messages.slice().reverse().map((message) => (
                             <div key={message.content}
                                 className={cn("p-8 w-full flex items-start gap-x-8 rounded-lg",
-                                    message.role == "user" ? "bg-white border border-black/10" : "bg-muted")}>
+                                    message.role == "user" ? "bg-white border border-black/10" : "bg-white")}>
                                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
                                 <ReactMarkdown components={{
                                     pre: ({ node, ...props }) => (

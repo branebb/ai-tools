@@ -21,7 +21,7 @@ const SaveButton = ({ dataschema }: any) => {
             setButtonText("Saved");
             toast.success("Document saved successfully!");
         } else {
-            toast.error("Failed to save document.");
+            toast.error("Failed to save document!");
         }
     };
 

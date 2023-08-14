@@ -17,7 +17,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
-import { cn } from "@/lib/utils";
 
 import { Select, SelectValue, SelectTrigger, SelectContent, SelectItem } from "@/components/ui/select";
 import { Card, CardFooter } from "@/components/ui/card";
@@ -64,11 +63,11 @@ const ImagePage = () => {
         <div>
             <Heading tittle="Image wert" description="opis" icon={ImageIcon}
                 iconColor="text-violet-500" bgColor="bg-violet-500/10" />
-            <div className="px-4 lg:px-8">
+            <div className="px-4 lg:px-8 bg-[#CED9E5]">
                 <div>
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)}
-                            className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2">
+                            className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2 bg-white">
                             <FormField name="prompt" render={({ field }) => (
                                 <FormItem className="col-span-12 lg:col-span-6">
                                     <FormControl className="m-0 p-0">
@@ -145,7 +144,7 @@ const ImagePage = () => {
                 </div>
                 <div className="space-y-4 mt-4">
                     {isLoading && (
-                        <div className="p-20">
+                        <div className="p-10 bg-white rounded-lg">
                             <Loader />
                         </div>
                     )}

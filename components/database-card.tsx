@@ -39,6 +39,14 @@ const DatabaseCard = () => {
         fetchData();
     }, []);
 
+    const updateTitle = (id : any, newTitle : any)  => {
+        setDataschemas((prevDataschemas) : any =>
+            prevDataschemas.map((schema : any) =>
+                schema._id === id ? { ...schema, title: newTitle } : schema
+            )
+        );
+    };
+
     const handleTopicDeleted = (deletedId : any) => {
         setDataschemas((prevDataschemas) =>
             prevDataschemas.filter((schema : any) => schema._id !== deletedId)
@@ -70,9 +78,7 @@ const DatabaseCard = () => {
                         <EditButton
                             id={t._id}
                             initialTitle={t.title}
-                            onTitleChange={(newTitle: string) => {
-                                // Handle title change if needed
-                            }}
+                            onTitleChange={(newTitle: string) => updateTitle(t._id, newTitle)}
                         />
                         <DownloadButton topic={t} />
                         <DeleteButton id={t._id} onTopicDeleted={handleTopicDeleted} />

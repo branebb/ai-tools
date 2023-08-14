@@ -1,79 +1,80 @@
 "use client";
 
-import { Lora } from "next/font/google";
+import { Roboto } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, MessageSquare, ImageIcon, VideoIcon, Music, HistoryIcon, Code, Settings } from "lucide-react"
+import { MessagesSquare, Joystick, ImagePlus, Clapperboard, Disc3Icon, Code2, Download } from "lucide-react"
 
 import { usePathname } from "next/navigation";
 
-const lora = Lora({ weight: "600", subsets: ["latin"] })
+const roboto = Roboto({ weight: "400", subsets: ["latin"] })
 
 const routes = [
     {
-        label: "Dashboard",
-        icon: LayoutDashboard,
+        label: "Upravljačka ploča",
+        icon: Joystick,
         href: "/dashboard",
-        color: "text-sky-500",
+        color: "text-[#F95738]",
     },
 
     {
-        label: "Conversation",
-        icon: MessageSquare,
+        label: "Razgovor",
+        icon: MessagesSquare,
         href: "/conversation",
-        color: "text-yellow-500",
+        color: "text-[#EC368D]",
     },
 
     {
-        label: "Image Generation",
-        icon: ImageIcon,
+        label: "Generiranje slika",
+        icon: ImagePlus,
         href: "/image",
-        color: "text-red-500",
+        color: "text-[#FFE66D]",
     },
 
     {
-        label: "Video Generation",
-        icon: VideoIcon,
+        label: "Generiranje videa",
+        icon: Clapperboard,
         href: "/video",
-        color: "text-sky-500",
+        color: "text-[#A0C1D1]",
     },
-
+  
     {
-        label: "Music Generation",
-        icon: Music,
+        label: "Generiranje glazbe",
+        icon: Disc3Icon,
         href: "/music",
-        color: "text-orange-500",
+        color: "text-[#EEF5DB]",
     },
-
+  
     {
-        label: "Code Generation",
-        icon: Code,
+        label: "Generiranje koda",
+        icon: Code2,
         href: "/code",
-        color: "text-emerald-500",
+        color: "text-[#F7C4A5]",
     },
 
     {
-        label: "Saved",
-        icon: HistoryIcon,
+        label: "Spremljeno",
+        icon: Download,
         href: "/saved",
-        color: "text-green-500",
+        color: "text-[#06D6A0]",
     },
 
 ];
 
 const Sidebar = () => {
+    
     const pathname = usePathname();
 
     return (
-        <div className="space-y-4 py-4 flex flex-col h-full bg-[#0047BB] text-white">
+        <div className={cn("space-y-4 py-4 flex flex-col h-full bg-[#0047BB] text-white", roboto.className)}>
             <div className="px-3 py-2 flex-1">
                 <Link href="/dashboard" className="flex items-center pl-3 mb-14">
                     <div className="relative w-8 h-8 mr-4">
                         <Image fill alt="logo" src="/mathos logo transparent.png" />
                     </div>
-                    <h1 className={cn("text-2xl font-bold", lora.className)}>Mathos AI</h1>
+                    <h1 className="text-2xl font-bold"> mathos AI alati </h1>
                 </Link>
                 <div className="space-y-1">
                     {routes.map((route) => (
