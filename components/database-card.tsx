@@ -64,24 +64,24 @@ const DatabaseCard = () => {
     const visibleDataschemas = dataschemas.slice(startIndex, endIndex);
 
     return (
-        <div className="max-w-screen-lg mx-auto">
-            {visibleDataschemas.map((t: any) => (
-                <div key={t._id} className='border-black border p-4 rounded-lg bg-muted mb-4 flex gap-x-8'>
-                    <div className='flex flex-col gap-y-4 flex-grow'>
-                        <h2>{t.title}</h2>
-                        <h2>{t.prompt}</h2>
+        <div className="max-w-screen-lg mx-auto p-10">
+            {visibleDataschemas.map((d: any) => (
+                <div key={d._id} className='border-black border p-4 rounded-lg bg-muted mb-4 flex gap-x-8'>
+                    <div className='flex flex-col gap-y-4 flex-grow text-justify'>
+                        <h1 className='text-lg'>{d.title}</h1>
+                        <h2>{d.prompt}</h2>
                         <div className='text-sm'>
-                            {t.type === "Code" ? <ReactMarkdown>{t.answer}</ReactMarkdown> : t.answer}
+                            {d.type === "Code" ? <ReactMarkdown>{d.answer}</ReactMarkdown> : d.answer}
                         </div>
                     </div>
                     <div className='flex flex-col gap-y-4'>
                         <EditButton
-                            id={t._id}
-                            initialTitle={t.title}
-                            onTitleChange={(newTitle: string) => updateTitle(t._id, newTitle)}
+                            id={d._id}
+                            initialTitle={d.title}
+                            onTitleChange={(newTitle: string) => updateTitle(d._id, newTitle)}
                         />
-                        <DownloadButton topic={t} />
-                        <DeleteButton id={t._id} onTopicDeleted={handleTopicDeleted} />
+                        <DownloadButton data={d} />
+                        <DeleteButton id={d._id} onTopicDeleted={handleTopicDeleted} />
                     </div>
                 </div>
             ))}
