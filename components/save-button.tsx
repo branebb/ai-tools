@@ -26,7 +26,7 @@ const SaveButton = ({ dataschema }: any) => {
     };
 
     return (
-        <Button onClick={saveTopic} disabled={buttonText === "Saved"}>
+        <Button className="group rounded-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB]" onClick={saveTopic} disabled={buttonText === "Saved"} >
             {buttonText}
         </Button>
     );

@@ -4,7 +4,7 @@ import * as z from "zod";
 import axios from "axios";
 
 import { Heading } from "@/components/heading";
-import { Code, MessageSquare } from "lucide-react";
+import { Code, Code2, MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -43,7 +43,7 @@ const CodePage = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            
+
             setPromptToSave(values.prompt);
 
             const userMessage: ChatCompletionRequestMessage = {
@@ -67,9 +67,9 @@ const CodePage = () => {
     };
 
     return (
-        <div>
-            <Heading tittle="Code Generation" description="opis" icon={Code}
-                iconColor="text-violet-500" bgColor="bg-violet-500/10" />
+        <div className="px-10">
+            <Heading tittle="Generiranje koda" description="Opiši kakav problem imaš ili koji dio koda ti je potreban!" icon={Code2}
+                iconColor="text-[#F7C4A5]" bgColor="bg-[#0047BB]" />
             <div className="px-4 lg:px-8 bg-[#CED9E5]">
                 <div>
                     <Form {...form}>
@@ -83,8 +83,8 @@ const CodePage = () => {
                                     </FormControl>
                                 </FormItem>
                             )} />
-                            <Button className="col-span-12 lg:col-span-2 w-full" disabled={isLoading}>
-                                Generate
+                            <Button className="rounded-full col-span-12 lg:col-span-2 w-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB]" disabled={isLoading}>
+                                Generiraj
                             </Button>
                         </form>
                     </Form>
@@ -96,7 +96,7 @@ const CodePage = () => {
                         </div>
                     )}
                     {messages.length == 0 && !isLoading && (
-                        <Empty label="No conversation yet. Ask anything now!" />
+                        <Empty label="Trenutno nema nikakvog koda generiranog. Postavi pitanje!" />
                     )}
                     <div className="flex flex-col-reverse gap-y-4">
                         {messages.slice().reverse().map((message) => (
@@ -117,9 +117,9 @@ const CodePage = () => {
                                     className="text-sm overflow-hidden leading-7">
                                     {message.content || ""}
                                 </ReactMarkdown>
-                                {message.role !== "user" && <SaveButton dataschema = {{title: promptToSave, prompt: promptToSave, answer: message.content, type: "Code"}} />}
+                                {message.role !== "user" && <SaveButton dataschema={{ title: promptToSave, prompt: promptToSave, answer: message.content, type: "Code" }} />}
                             </div>
-                            
+
                         ))}
                     </div>
                 </div>

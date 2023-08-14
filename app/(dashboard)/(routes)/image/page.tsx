@@ -4,7 +4,7 @@ import * as z from "zod";
 import axios from "axios";
 
 import { Heading } from "@/components/heading";
-import { Download,ImageIcon,MessageSquare } from "lucide-react";
+import { Download, ImagePlus } from "lucide-react";
 import { useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -60,9 +60,9 @@ const ImagePage = () => {
     };
 
     return (
-        <div>
-            <Heading tittle="Image wert" description="opis" icon={ImageIcon}
-                iconColor="text-violet-500" bgColor="bg-violet-500/10" />
+        <div className="px-10">
+            <Heading tittle="Generiranje slika" description="Opiši kakvu sliku želiš, odaberi količinu i rezoluciju!" icon={ImagePlus}
+                iconColor="text-[#FFE66D]" bgColor="bg-[#0047BB]" />
             <div className="px-4 lg:px-8 bg-[#CED9E5]">
                 <div>
                     <Form {...form}>
@@ -72,7 +72,7 @@ const ImagePage = () => {
                                 <FormItem className="col-span-12 lg:col-span-6">
                                     <FormControl className="m-0 p-0">
                                         <Input className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                                            disabled={isLoading} placeholder="Picture of student studying" {...field} />
+                                            disabled={isLoading} placeholder="Slatki psi" {...field} />
                                     </FormControl>
                                 </FormItem>
                             )} />
@@ -136,8 +136,8 @@ const ImagePage = () => {
                                     </FormItem>
                                 )}
                             />
-                            <Button className="col-span-12 lg:col-span-2 w-full" disabled={isLoading}>
-                                Generate
+                            <Button className="rounded-full col-span-12 lg:col-span-2 w-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB]" disabled={isLoading}>
+                                Generiraj
                             </Button>
                         </form>
                     </Form>
@@ -149,24 +149,24 @@ const ImagePage = () => {
                         </div>
                     )}
                     {images.length == 0 && !isLoading && (
-                        <Empty label="No images generated........" />
+                        <Empty label="Trenutno nema generiranih slika. Generiraj neke!" />
                     )}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
-                        {images.map((src) =>(
-                            <Card 
+                        {images.map((src) => (
+                            <Card
                                 key={src}
                                 className="rounded-lg overflow-hidden">
-                            <div className="relative aspect-square">
-                                <Image alt="Image" fill src={src} />
-                            </div>
-                            <CardFooter className="p-2">
-                                <Button onClick={() => window.open(src)}
-                                        variant="secondary" 
+                                <div className="relative aspect-square">
+                                    <Image alt="Image" fill src={src} />
+                                </div>
+                                <CardFooter className="p-2">
+                                    <Button onClick={() => window.open(src)}
+                                        variant="secondary"
                                         className="w-full">
-                                    <Download className="h-4 w-4 mr-2" />
-                                    Download
-                                </Button>
-                            </CardFooter>
+                                        <Download className="h-4 w-4 mr-2" />
+                                        Download
+                                    </Button>
+                                </CardFooter>
                             </Card>
                         ))}
                     </div>

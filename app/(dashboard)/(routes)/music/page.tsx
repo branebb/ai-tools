@@ -4,7 +4,7 @@ import * as z from "zod";
 import axios from "axios";
 
 import { Heading } from "@/components/heading";
-import { MessageSquare } from "lucide-react";
+import { Disc2, Disc3, MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -51,9 +51,9 @@ const MusicPage = () => {
     };
 
     return (
-        <div>
-            <Heading tittle="Music" description="opis" icon={MessageSquare}
-                iconColor="text-violet-500" bgColor="bg-violet-500/10" />
+        <div className="px-10">
+            <Heading tittle="Generiranje glazbe" description="Opiši kakvu glazbu želiš!" icon={Disc3}
+                iconColor="text-[#EEF5DB]" bgColor="bg-[#0047BB]" />
             <div className="px-4 lg:px-8 bg-[#CED9E5]">
                 <div>
                     <Form {...form}>
@@ -63,12 +63,12 @@ const MusicPage = () => {
                                 <FormItem className="col-span-12 lg:col-span-10">
                                     <FormControl className="m-0 p-0">
                                         <Input className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                                            disabled={isLoading} placeholder="Piano ........." {...field} />
+                                            disabled={isLoading} placeholder="Piano solo" {...field} />
                                     </FormControl>
                                 </FormItem>
                             )} />
-                            <Button className="col-span-12 lg:col-span-2 w-full" disabled={isLoading}>
-                                Generate
+                            <Button className="rounded-full col-span-12 lg:col-span-2 w-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB]" disabled={isLoading}>
+                            Generiraj
                             </Button>
                         </form>
                     </Form>
@@ -80,7 +80,7 @@ const MusicPage = () => {
                         </div>
                     )}
                     {!music && !isLoading && (
-                        <Empty label="No music for now" />
+                        <Empty label="Treutno nema glazbe. Generiraj glazbu!" />
                     )}
                     {music && (
                         <audio controls className="w-full mt-8">

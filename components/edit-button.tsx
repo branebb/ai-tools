@@ -43,19 +43,19 @@ const EditButton = ({ id, initialTitle, onTitleChange }: any) => {
         <div>
             {isEditing ? (
                 <div className='w-full max-w-screen-lg mx-auto px-4'>
-                    <input
+                    <input className='border-2 border-[#25242] rounded-lg '
                         type="text"
                         value={editedTitle}
                         onChange={handleTitleChange}
                     />
                     <div className='flex mt-4 gap-x-4 justify-center'>
-                        <Button onClick={handleSaveClick}>Save</Button>
-                        <Button onClick={handleCancelClick}>Cancel</Button>
+                        <Button variant="outline" className="group rounded-full bg-[#0047BB] text-[#CED9E5] hover:text-[#252422]" onClick={handleSaveClick}>Save</Button>
+                        <Button variant="outline" className="group rounded-full bg-[#0047BB] text-[#CED9E5] hover:text-[#252422]" onClick={handleCancelClick}>Cancel</Button>
                     </div>
                 </div>
             ) :
                 (
-                    <Button className='w-full' onClick={handleEditClick}>Edit</Button>
+                    <Button variant="outline" className="group rounded-full bg-[#0047BB] text-[#CED9E5] hover:text-[#252422] w-full" onClick={handleEditClick}>Edit</Button>
                 )}
         </div>
     );

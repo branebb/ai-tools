@@ -64,14 +64,14 @@ const DatabaseCard = () => {
     const visibleDataschemas = dataschemas.slice(startIndex, endIndex);
 
     return (
-        <div className="max-w-screen-lg mx-auto p-10">
+        <div className="px-24">
             {visibleDataschemas.map((d: any) => (
-                <div key={d._id} className='border-black border p-4 rounded-lg bg-muted mb-4 flex gap-x-8'>
+                <div key={d._id} className='border-[#25242] border p-5 rounded-lg bg-white mb-4 flex gap-x-8 '>
                     <div className='flex flex-col gap-y-4 flex-grow text-justify'>
-                        <h1 className='text-lg'>{d.title}</h1>
-                        <h2>{d.prompt}</h2>
-                        <div className='text-sm'>
-                            {d.type === "Code" ? <ReactMarkdown>{d.answer}</ReactMarkdown> : d.answer}
+                        <h1 className='text-xl font-bold text-center text-[#252422]'>{d.title}</h1>
+                        <h2 className='text-lg text-center text-black'> Prompt: {d.prompt}</h2>
+                        <div className='text-base text-black'>
+                            Answer: {d.type === "Code" ? <ReactMarkdown>{d.answer}</ReactMarkdown> : d.answer}
                         </div>
                     </div>
                     <div className='flex flex-col gap-y-4'>
@@ -80,17 +80,17 @@ const DatabaseCard = () => {
                             initialTitle={d.title}
                             onTitleChange={(newTitle: string) => updateTitle(d._id, newTitle)}
                         />
-                        <DownloadButton data={d} />
+                        <DownloadButton  data={d} />
                         <DeleteButton id={d._id} onTopicDeleted={handleTopicDeleted} />
                     </div>
                 </div>
             ))}
             <div className="mt-4 flex justify-center">
                 {currentPage > 1 && (
-                    <Button className="mr-2" onClick={handlePreviousPage}>Previous</Button>
+                    <Button className="mr-2 rounded-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB]" onClick={handlePreviousPage}>Previous</Button>
                 )}
                 {dataschemas.length > endIndex && (
-                    <Button onClick={handleNextPage}>Next</Button>
+                    <Button className="rounded-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB]" onClick={handleNextPage}>Next</Button>
                 )}
             </div>
         </div>

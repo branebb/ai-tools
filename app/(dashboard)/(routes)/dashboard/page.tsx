@@ -3,14 +3,14 @@
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
-import { ArrowRight, MessagesSquare, ImagePlus, Clapperboard, Disc3, Disc3Icon, Code2, Download } from "lucide-react"
+import { ArrowRight, MessagesSquare, ImagePlus, Clapperboard, Disc3Icon, Code2, Download, Joystick } from "lucide-react"
 
 const tools = [
   {
       label: "Razgovor",
       icon: MessagesSquare,
       href: "/conversation",
-      bgColor: "bg-violet-500/10",
+      bgColor: "bg-[#0047BB]",
       color: "text-[#EC368D]",
   },
 
@@ -18,7 +18,7 @@ const tools = [
       label: "Generiranje slika",
       icon: ImagePlus,
       href: "/image",
-      bgColor: "bg-violet-500/10",
+      bgColor: "bg-[#0047BB]",
       color: "text-[#FFE66D]",
   },
 
@@ -26,7 +26,7 @@ const tools = [
       label: "Generiranje videa",
       icon: Clapperboard,
       href: "/video",
-      bgColor: "bg-violet-500/10",
+      bgColor: "bg-[#0047BB]",
       color: "text-[#A0C1D1]",
   },
 
@@ -34,24 +34,24 @@ const tools = [
       label: "Generiranje glazbe",
       icon: Disc3Icon,
       href: "/music",
-      bgColor: "bg-violet-500/10",
-      color: "text-orange-500",
+      bgColor: "bg-[#0047BB]",
+      color: "text-[#EEF5DB]",
   },
 
   {
       label: "Generiranje koda",
       icon: Code2,
       href: "/code",
-      bgColor: "bg-violet-500/10",
-      color: "text-emerald-500",
+      bgColor: "bg-[#0047BB]",
+      color: "text-[#F7C4A5]",
   },
 
   {
       label: "Spremljeno",
       icon: Download,
       href: "/saved",
-      bgColor: "bg-violet-500/10",
-      color: "text-green-500",
+      bgColor: "bg-[#0047BB]",
+      color: "text-[#06D6A0]",
   }
 ];
 
@@ -63,7 +63,7 @@ const DashboardPage = () => {
       <div className="mb-8 space-y-4">
         <h2 className="text-2xl md:text-4xl font-bold text-center text-[#252422]">Upravljačka ploča</h2>
         <p className="text-muted-foreground font-light text-sm md:text-lg text-center text-[#252422]">
-          Istraži sve mogućnosti alata
+          Istraži sve mogućnosti
         </p>
       </div>
       <div className="px-4 md:px-20 lg:px-32 space-y-4">
@@ -75,7 +75,7 @@ const DashboardPage = () => {
               <div className={cn("p-2 w-fit rounded-md", tool.bgColor)}>
                 <tool.icon className={cn("w-10 h-10", tool.color)} />
               </div>
-              <div className="font-semibold text-[#252422] text-md">
+              <div className="font-semibold text-[#252422] text-lg">
                 {tool.label}
               </div>
             </div>

@@ -4,7 +4,7 @@ import * as z from "zod";
 import axios from "axios";
 
 import { Heading } from "@/components/heading";
-import { MessageSquare } from "lucide-react";
+import { Clapperboard } from "lucide-react";
 import { useForm } from "react-hook-form";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -51,9 +51,9 @@ const VideoPage = () => {
     };
 
     return (
-        <div>
-            <Heading tittle="Video" description="opis" icon={MessageSquare}
-                iconColor="text-violet-500" bgColor="bg-violet-500/10" />
+        <div className="px-10">
+            <Heading tittle="Generiranje videa" description="Opiši kakav video želiš, što bolji i detaljniji opis bolji video!" icon={Clapperboard}
+                iconColor="text-[#A0C1D1]" bgColor="bg-[#0047BB]" />
             <div className="px-4 lg:px-8 bg-[#CED9E5]">
                 <div>
                     <Form {...form}>
@@ -63,12 +63,12 @@ const VideoPage = () => {
                                 <FormItem className="col-span-12 lg:col-span-10">
                                     <FormControl className="m-0 p-0">
                                         <Input className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
-                                            disabled={isLoading} placeholder="Fish swimming" {...field} />
+                                            disabled={isLoading} placeholder="Ribe koje plivaju u akvariju, 8k rezolucija, trajanje 5 sekundi" {...field} />
                                     </FormControl>
                                 </FormItem>
                             )} />
-                            <Button className="col-span-12 lg:col-span-2 w-full" disabled={isLoading}>
-                                Generate
+                            <Button className="rounded-full col-span-12 lg:col-span-2 w-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB]" disabled={isLoading}>
+                            Generiraj
                             </Button>
                         </form>
                     </Form>
@@ -80,7 +80,7 @@ const VideoPage = () => {
                         </div>
                     )}
                     {!video && !isLoading && (
-                        <Empty label="No video for now" />
+                        <Empty label="Trenutno nema generiranih videa. Generiraj video sada!" />
                     )}
                     {video && (
                         <video className="w-full aspect-video mt-8 rounded-lg border bg-black" controls>
