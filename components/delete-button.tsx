@@ -13,7 +13,7 @@ const DeleteButton = ({ id, onTopicDeleted }: any) => {
 
             if (res.ok) {
                 onTopicDeleted(id);
-                toast.success("Topic deleted successfully!");
+                toast.success("Uspješno obrisana stavka!");
             }
         } else {
             setIsConfirming(true);

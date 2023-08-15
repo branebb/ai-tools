@@ -3,10 +3,8 @@
 import { Roboto } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-
 import { cn } from "@/lib/utils";
 import { MessagesSquare, Joystick, ImagePlus, Clapperboard, Disc3Icon, Code2, Download } from "lucide-react"
-
 import { usePathname } from "next/navigation";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"] })

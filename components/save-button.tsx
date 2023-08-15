@@ -19,9 +19,9 @@ const SaveButton = ({ dataschema }: any) => {
 
         if (res.ok) {
             setButtonText("Saved");
-            toast.success("Document saved successfully!");
+            toast.success("Uspješno spremanje!");
         } else {
-            toast.error("Failed to save document!");
+            toast.error("Greška pri spremanju!");
         }
     };
 

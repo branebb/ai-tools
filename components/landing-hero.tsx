@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useAuth } from "@clerk/nextjs"
 import Link from "next/link";
 import TypewriterComponent from "typewriter-effect"
@@ -21,7 +20,7 @@ export const LandingHero = () => {
         <div className={cn("text-[#252422] font-bold py-40 text-center space-y-8", font.className)}>
             <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl space-y-8 font-extrabold">
                 <h1> Dobrodošao na mathos AI alati </h1>
-                <div className="h-20 text-transparent bg-clip-text bg-[#FE4A49]">
+                <div className="h-20 text-transparent bg-clip-text bg-[#0047BB]">
                     <TypewriterComponent options={{
                         strings: [
                             "Razgovoraj s mathos AI-em", "Generiraj slike", "Generiraj video", "Generiraj dio koda",

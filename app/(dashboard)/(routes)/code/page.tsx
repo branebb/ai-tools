@@ -3,27 +3,27 @@
 import * as z from "zod";
 import axios from "axios";
 
-import { Heading } from "@/components/heading";
-import { Code, Code2, MessageSquare } from "lucide-react";
-import { useForm } from "react-hook-form";
+import ReactMarkdown from "react-markdown";
+import SaveButton from "@/components/save-button";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import { formSchema } from "./constants";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { Heading } from "@/components/heading";
+import { Empty } from "@/components/empty";
+import { Loader } from "@/components/loader";
+import { UserAvatar } from "@/components/user-avatar";
+import { BotAvatar } from "@/components/bot-avatar";
+import { Code2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { formSchema } from "./constants";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { ChatCompletionRequestMessage } from "openai";
-import { Empty } from "@/components/empty";
-import { Loader } from "@/components/loader";
 import { cn } from "@/lib/utils";
-import { UserAvatar } from "@/components/user-avatar";
-import { BotAvatar } from "@/components/bot-avatar";
-import ReactMarkdown from "react-markdown";
 import { toast } from "react-hot-toast";
-import SaveButton from "@/components/save-button";
+
 
 const CodePage = () => {
 
@@ -60,7 +60,7 @@ const CodePage = () => {
             form.reset();
 
         } catch (error: any) {
-            toast.error("Oops. Something went wrong. Please try again.");
+            toast.error("Dogodila se greška. Pokušaj ponovo!");
         } finally {
             router.refresh();
         }
@@ -83,7 +83,7 @@ const CodePage = () => {
                                     </FormControl>
                                 </FormItem>
                             )} />
-                            <Button className="rounded-full col-span-12 lg:col-span-2 w-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB]" disabled={isLoading}>
+                            <Button className="rounded-full col-span-12 lg:col-span-2 w-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB] text-md" disabled={isLoading}>
                                 Generiraj
                             </Button>
                         </form>

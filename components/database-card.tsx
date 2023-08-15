@@ -24,7 +24,7 @@ const DatabaseCard = () => {
                 });
 
                 if (!res.ok) {
-                    toast.error("Failed to fetch data!");
+                    toast.error("Greška pri dohvaćanju podataka!");
                 }
 
                 const dataschemasData = await res.json();
@@ -32,7 +32,7 @@ const DatabaseCard = () => {
                 setIsLoading(false);
 
             } catch (error) {
-                toast.error("Failed to fetch data!");
+                toast.error("Greška pri dohvaćanju podataka!");
             }
         };
 

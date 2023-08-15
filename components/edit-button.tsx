@@ -32,10 +32,10 @@ const EditButton = ({ id, initialTitle, onTitleChange }: any) => {
             if (res.ok) {
                 onTitleChange(editedTitle);
                 setIsEditing(false);
-                toast.success('Title changed successfuly!');
+                toast.success('Naslov uspješno ažuriran!');
             }
         } catch (error) {
-            toast.error('Error updating title!');
+            toast.error('Greška pri ažuriranju naslova!');
         }
     };
 

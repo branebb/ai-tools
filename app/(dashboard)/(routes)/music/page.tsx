@@ -2,13 +2,10 @@
 
 import * as z from "zod";
 import axios from "axios";
-
 import { Heading } from "@/components/heading";
-import { Disc2, Disc3, MessageSquare } from "lucide-react";
+import { Disc3 } from "lucide-react";
 import { useForm } from "react-hook-form";
-
 import { zodResolver } from "@hookform/resolvers/zod";
-
 import { formSchema } from "./constants";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -44,7 +41,7 @@ const MusicPage = () => {
             form.reset();
 
         } catch (error: any) {
-            toast.error("Oops. Something went wrong. Please try again.");
+            toast.error("Dogodila se greška. Pokušaj ponovo!");
         } finally {
             router.refresh();
         }
@@ -67,7 +64,7 @@ const MusicPage = () => {
                                     </FormControl>
                                 </FormItem>
                             )} />
-                            <Button className="rounded-full col-span-12 lg:col-span-2 w-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB]" disabled={isLoading}>
+                            <Button className="rounded-full col-span-12 lg:col-span-2 w-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB] text-md" disabled={isLoading}>
                             Generiraj
                             </Button>
                         </form>

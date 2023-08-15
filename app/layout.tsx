@@ -23,7 +23,8 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <CrispProvider />
+      <link rel="icon" href='/mathos logo transparent.png' />
+      <CrispProvider />
         <body className={roboto.className}>{children}
           <ToasterProvider />
         </body>

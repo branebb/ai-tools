@@ -7,7 +7,7 @@ export const Loader = () => {
                 <Image alt="logo" fill src="/mathos logo transparent.png" />
             </div>
             <p className="text-sm text-muted-foreground">
-                mathos conversation AI is thinking...
+                mathos AI misli...
             </p>
         </div>
     );

@@ -2,13 +2,10 @@
 
 import * as z from "zod";
 import axios from "axios";
-
 import { Heading } from "@/components/heading";
 import { Download, ImagePlus } from "lucide-react";
 import { useForm } from "react-hook-form";
-
 import { zodResolver } from "@hookform/resolvers/zod";
-
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -17,7 +14,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
-
 import { Select, SelectValue, SelectTrigger, SelectContent, SelectItem } from "@/components/ui/select";
 import { Card, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
@@ -53,7 +49,7 @@ const ImagePage = () => {
             form.reset();
 
         } catch (error: any) {
-            toast.error("Oops. Something went wrong. Please try again.");
+            toast.error("Dogodila se greška. Pokušaj ponovo!");
         } finally {
             router.refresh();
         }
@@ -136,7 +132,7 @@ const ImagePage = () => {
                                     </FormItem>
                                 )}
                             />
-                            <Button className="rounded-full col-span-12 lg:col-span-2 w-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB]" disabled={isLoading}>
+                            <Button className="rounded-full col-span-12 lg:col-span-2 w-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB] text-md" disabled={isLoading}>
                                 Generiraj
                             </Button>
                         </form>

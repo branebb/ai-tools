@@ -2,13 +2,10 @@
 
 import * as z from "zod";
 import axios from "axios";
-
 import { Heading } from "@/components/heading";
-import { MessageSquare, MessagesSquare } from "lucide-react";
+import { MessagesSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
-
 import { zodResolver } from "@hookform/resolvers/zod";
-
 import { formSchema } from "./constants";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -59,7 +56,7 @@ const Conversation = () => {
             form.reset();
 
         } catch (error: any) {
-            toast.error("Oops. Something went wrong. Please try again.");
+            toast.error("Dogodila se greška. Pokušaj ponovo!");
         } finally {
             router.refresh();
         }
@@ -82,7 +79,7 @@ const Conversation = () => {
                                     </FormControl>
                                 </FormItem>
                             )} />
-                            <Button variant="secondary" className=" col-span-12 lg:col-span-2 w-full group rounded-full bg-[#0047BB] text-[#CED9E5] hover:text-[#252422]" disabled={isLoading}>
+                            <Button variant="secondary" className="col-span-12 lg:col-span-2 w-full group rounded-full bg-[#0047BB] text-[#CED9E5] hover:bg-[#0047BB] text-md" disabled={isLoading}>
                                 Generiraj
                             </Button>
                         </form>
