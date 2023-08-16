@@ -1,7 +1,6 @@
-## If you wish to try the project
-# download zip
+If you wish to try the project,
 
-You first need to add .env file to whole project
+add .env file to whole project
 ```bash
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
@@ -17,7 +16,7 @@ REPLICATE_API_TOKEN =
 
 MONGODB_URI =
 ```
-Where you need to provide this keys yourself.
+where you need to provide keys yourself.
 
 First run,
 
@@ -32,3 +31,5 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+If you wish to see official deployed website contact me through my gmail branebrekalo@gmail.com.
