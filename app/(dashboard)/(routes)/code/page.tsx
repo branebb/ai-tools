@@ -67,7 +67,7 @@ const CodePage = () => {
     };
 
     return (
-        <div className="px-10">
+        <div className="px-2">
             <Heading tittle="Generiranje koda" description="Opiši kakav problem imaš ili koji dio koda ti je potreban!" icon={Code2}
                 iconColor="text-[#F7C4A5]" bgColor="bg-[#0047BB]" />
             <div className="px-4 lg:px-8 bg-[#CED9E5]">
@@ -101,7 +101,7 @@ const CodePage = () => {
                     <div className="flex flex-col-reverse gap-y-4">
                         {messages.slice().reverse().map((message) => (
                             <div key={message.content}
-                                className={cn("p-8 w-full flex items-start gap-x-8 rounded-lg",
+                                className={cn("p-8 w-full flex items-start gap-x-2 rounded-lg",
                                     message.role == "user" ? "bg-white border border-black/10" : "bg-white")}>
                                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
                                 <ReactMarkdown components={{

@@ -56,7 +56,7 @@ const ImagePage = () => {
     };
 
     return (
-        <div className="px-10">
+        <div className="px-2">
             <Heading tittle="Generiranje slika" description="Opiši kakvu sliku želiš, odaberi količinu i rezoluciju!" icon={ImagePlus}
                 iconColor="text-[#FFE66D]" bgColor="bg-[#0047BB]" />
             <div className="px-4 lg:px-8 bg-[#CED9E5]">

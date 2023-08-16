@@ -20,15 +20,15 @@ export const LandingNavbar = () => {
         <nav className={cn("p-4 bg-transparent flex items-center justify-between", font.className)}>
             <Link href="/" className="flex items-center">
                 <div className="relative h-12 w-12 mr-6">
-                    <Image fill alt="Logo" src="/mathos logo transparent.png" />
+                    <Image alt="Logo" src="/mathos logo transparent.png" width={50} height={50} />
                 </div>
-                <h1 className="text-4xl font-bold text-[#252422]">
+                <h1 className="text-sm sm:text-4xl font-bold text-[#252422]">
                     mathos AI alati
                 </h1>
             </Link>
             <div className="flex items-center gap-x-2">
                 <Link href={isSignedIn ? "/dashboard" : "/sign-up"}>
-                    <Button variant="outline" className="group rounded-full bg-[#0047BB] text-[#CED9E5] hover:text-[#252422]">
+                    <Button variant="outline" className=" w-50 group rounded-full bg-[#0047BB] text-[#CED9E5] hover:text-[#252422]">
                         Započni istraživati
                     </Button>
                 </Link>

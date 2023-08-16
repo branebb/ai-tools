@@ -48,7 +48,7 @@ const VideoPage = () => {
     };
 
     return (
-        <div className="px-10">
+        <div className="px-2">
             <Heading tittle="Generiranje videa" description="Opiši kakav video želiš, što bolji i detaljniji opis bolji video!" icon={Clapperboard}
                 iconColor="text-[#A0C1D1]" bgColor="bg-[#0047BB]" />
             <div className="px-4 lg:px-8 bg-[#CED9E5]">

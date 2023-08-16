@@ -19,7 +19,7 @@ const DatabaseCard = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch('http://localhost:3000/api/saved', {
+                const res = await fetch('http://localhost:3000//api/saved', {
                     cache: 'no-store',
                 });
 
@@ -64,14 +64,27 @@ const DatabaseCard = () => {
     const visibleDataschemas = dataschemas.slice(startIndex, endIndex);
 
     return (
-        <div className="px-24">
+        <div className="px-4 md:px-10">
             {visibleDataschemas.map((d: any) => (
-                <div key={d._id} className='border-[#25242] border p-5 rounded-lg bg-white mb-4 flex gap-x-8 '>
-                    <div className='flex flex-col gap-y-4 flex-grow text-justify'>
+                <div key={d._id} className='border border-gray-300 p-5 rounded-lg bg-white mb-4 flex flex-col md:flex-row gap-4'> {/* Use flex for responsive layout */}
+                    <div className='flex-1'>
                         <h1 className='text-xl font-bold text-center text-[#252422]'>{d.title}</h1>
-                        <h2 className='text-lg text-center text-black'> Prompt: {d.prompt}</h2>
+                        <h2 className='text-lg text-center text-black'> Pitanje: {d.prompt}</h2>
                         <div className='text-base text-black'>
-                            Answer: {d.type === "Code" ? <ReactMarkdown>{d.answer}</ReactMarkdown> : d.answer}
+                            Odgovor: {d.type === "Code" ? (
+                                <ReactMarkdown components={{
+                                    pre: ({ node, ...props }) => (
+                                        <div className="overflow-auto my-2 bg-gray-100 p-2 rounded-lg">
+                                            <pre {...props} />
+                                        </div>
+                                    ),
+                                    code: ({ node, ...props }) => (
+                                        <code className="bg-gray-100 rounded-lg p-1" {...props}></code>
+                                    )
+                                }}>
+                                    {d.answer}
+                                </ReactMarkdown>
+                            ) : d.answer}
                         </div>
                     </div>
                     <div className='flex flex-col gap-y-4'>

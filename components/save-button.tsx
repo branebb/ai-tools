@@ -3,7 +3,7 @@ import { toast } from "react-hot-toast";
 import { Button } from "./ui/button";
 
 const SaveButton = ({ dataschema }: any) => {
-    const [buttonText, setButtonText] = useState("Save"); // Initial button text is "Save"
+    const [buttonText, setButtonText] = useState("Spremi");
 
     const saveTopic = async () => {
         const { title, type, prompt, answer } = dataschema;
@@ -18,7 +18,7 @@ const SaveButton = ({ dataschema }: any) => {
         });
 
         if (res.ok) {
-            setButtonText("Saved");
+            setButtonText("Spremljeno");
             toast.success("Uspješno spremanje!");
         } else {
             toast.error("Greška pri spremanju!");

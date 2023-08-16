@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/8ac2449d-8452-48f4-af9f-232261782f84/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/mathos-ai-alati",
+    "appService.deploySubpath": "."
+}

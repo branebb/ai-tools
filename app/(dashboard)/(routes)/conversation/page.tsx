@@ -63,14 +63,14 @@ const Conversation = () => {
     };
 
     return (
-        <div className="px-10">
+        <div className="px-2">
             <Heading tittle="Razgovor" description="Postavi bilo koje pitanje!" icon={MessagesSquare}
                 iconColor="text-[#EC368D]" bgColor="bg-[#0047BB]" />
             <div className="px-4 lg:px-8 bg-[#CED9E5]">
                 <div>
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)}
-                            className="bg-white rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2">
+                            className="bg-white rounded-lg border w-full p-4 px-3 md:px-10 focus-within:shadow-sm grid grid-cols-12 gap-2">
                             <FormField name="prompt" render={({ field }) => (
                                 <FormItem className="col-span-12 lg:col-span-10">
                                     <FormControl className="m-0 p-0">
@@ -97,7 +97,7 @@ const Conversation = () => {
                     <div className="flex flex-col-reverse gap-y-4">
                         {messages.slice().reverse().map((message) => (
                             <div key={message.content}
-                                className={cn("p-8 w-full flex items-center gap-x-5 rounded-lg",
+                                className={cn("p-5 w-full flex items-center gap-x-2 rounded-lg",
                                     message.role == "user" ? "bg-white border border-black/10" : "bg-white")}>
                                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
                                 

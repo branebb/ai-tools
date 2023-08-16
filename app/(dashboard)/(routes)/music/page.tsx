@@ -48,7 +48,7 @@ const MusicPage = () => {
     };
 
     return (
-        <div className="px-10">
+        <div className="px-2">
             <Heading tittle="Generiranje glazbe" description="Opiši kakvu glazbu želiš!" icon={Disc3}
                 iconColor="text-[#EEF5DB]" bgColor="bg-[#0047BB]" />
             <div className="px-4 lg:px-8 bg-[#CED9E5]">

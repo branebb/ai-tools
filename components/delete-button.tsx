@@ -7,7 +7,7 @@ const DeleteButton = ({ id, onTopicDeleted }: any) => {
 
     const handleDeleteClick = async () => {
         if (isConfirming) {
-            const res = await fetch(`http://localhost:3000/api/saved?id=${id}`, {
+            const res = await fetch(`http://localhost:3000/saved?id=${id}`, {
                 method: "DELETE",
             });
 
